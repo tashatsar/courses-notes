@@ -1,4 +1,5 @@
-# airflow_basics
+# airflow basics
+# Aug 2023
 Some notes on Airflow basics for beginners. Partially based on course [Apache Airflow: The Hands-On Guide](https://udemy.com/course/the-ultimate-hands-on-course-to-master-apache-airflow) and mostly on the [official documentation](https://airflow.apache.org/docs/apache-airflow/stable/index.html). The followng commands and code worked for Win10, Airflow in Docker.
 
 **#bestpractice**: to become more familiar with consepts it's highly recommended to check the [tutorial](https://airflow.apache.org/docs/apache-airflow/stable/tutorial.html)
