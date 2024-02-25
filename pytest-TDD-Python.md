@@ -1,5 +1,5 @@
 # Unit testing with `pytest`🐍🚨
-# 20.02.2023
+# Feb 2023
 
 ## Some courses 💻📕🚀
 - [Elegant Automation Frameworks with Python and Pytest course](https://www.udemy.com/course/elegant-automation-frameworks-with-python-and-pytest/):🐌🐌🐌
