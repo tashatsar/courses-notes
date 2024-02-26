@@ -5,11 +5,13 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 
 ## Table of Contents
 1. [Introduction to Linux](#introduction-to-linux):
-	1. [Introduction to Linux](#introduction-to-linux)
-	1. [Questions and answers](#questions-and-answers)
+	1. [Introduction to Linux](#introduction-to-linux👋)
+	1. [Questions and answers](#questions-and-answers💯)
 2. [Linux Commands](#linux-commands):
-	1. [Informational Commandsℹ️](#informational-commandsℹ️)
- 	2. [Navigating Files and Directories🗺](#navigating-files-and-directories🗺️)
+	1. [Informational Commands](#informational-commandsℹ️)
+ 	2. [Navigating Files and Directories](#navigating-files-and-directories🗺️)
+  	3. [Viewing file contents](#viewing-file-contents🔍)
+   	4. [Questions and answers](#questions-and-answers💯)
 
 ## Introduction to Linux 🐧
 ### Introduction to Linux👋
