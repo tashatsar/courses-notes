@@ -43,6 +43,8 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 8. Complete the following. Packages are: _Archive files_
 9. Which command can you use to convert package files between deb and RPM formats? _alien_
 10. Complete the following. An advantage of using a GUI-based package manager such as PackageKit is that: _It automatically checks for updates at configurable intervals._
+
+    
 ## Linux Commands
 ### Informational Commandsℹ️
 #### Getting information
