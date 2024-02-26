@@ -7,8 +7,9 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 1. [Introduction to Linux](#introduction-to-linux):
 	1. [Introduction to Linux](#introduction-to-linux)
 	1. [Questions and answers](#questions-and-answers)
-2. [chapter2](#airflow):
-	1. [bullet1](#commands)
+2. [Linux Commands](#linux-commands):
+	1. [Informational Commandsℹ️](#informational-commandsℹ️)
+ 	2. [Navigating Files and Directories🗺](#navigating-files-and-directories🗺️)
 
 ## Introduction to Linux 🐧
 ### Introduction to Linux👋
