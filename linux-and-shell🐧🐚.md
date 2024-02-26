@@ -109,14 +109,14 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 - `sort text_file.txt` sort and display lines of file alphanumerically
 	- `sort -r text_file.txt` reversed
 - `uniq list_with_duplicated_lines.txt` drop **consecutive** duplicated lines and display result
-### Archiving and Compressing Files
+### Archiving and Compressing Files🗄️
 - `tar -cvf my_archive.tar.gz file1 file2 file3` achieve a set of files
 	- -c Create new archive file
 	- -v Verbosely list files processed
 	- -f Archive file name
 - `zip my_zipped_files.zip file1 file2` compress a set of files
 - `unzip my_zipped_file.zip` that's what you think it is
-### Networking Commands
+### Networking Commands🌐
 - `ifconfig` display or configure system network interfaces
 - `hostname` display hostname
 - `curl  <url>` display contents of file at a URL
