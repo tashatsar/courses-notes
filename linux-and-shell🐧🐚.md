@@ -99,21 +99,49 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 - `head -10 data_table.csv` displays first 10 lines of file
 - `tail -10 data_table.csv` displays last 10 lines of file
 - `wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt`
+- `grep people usdoi.txt` prints all lines in the file usdoi.txt which contain the word people
+	- `-n` Along with the matching lines, also print the line numbers
+	- `-c` Get the count of matching lines
+	- `-i` Ignore the case of the text while matching
+	- `-v` Print all lines which do not contain the pattern
+	- `-w` Match only if the pattern matches whole words
+ - `grep  -iw hello  a_bunch_of_hellos.txt` extract lines containing the word "hello", case insensitive and whole words only
+ - `grep  -l hello  *.txt` extract lines containing the pattern "hello" from all files in the current directory ending in .txt
+
 #### Displaying basic stats:
 - `wc usdoi.txt` to find the number of lines, words, and characters in a file
 	- `wc  -l table_of_data.csv` lines
 	- `wc  -w my_essay.txt` words
 	- `wc  -m some_document.txt` characters
+#### Sorting lines and dropping duplicates:
+- `sort text_file.txt` sort and display lines of file alphanumerically
+	- `sort -r text_file.txt` reversed
+- `uniq list_with_duplicated_lines.txt` drop **consecutive** duplicated lines and display result
+
+### Archiving and Compressing Files
+- `tar -cvf my_archive.tar.gz file1 file2 file3` achieve a set of files
+	- -c Create new archive file
+	- -v Verbosely list files processed
+	- -f Archive file name
+- `zip my_zipped_files.zip file1 file2` compress a set of files
+- `unzip my_zipped_file.zip` that's what you think it is
+ 
+### Networking Commands
+- `ifconfig` display or configure system network interfaces
+- `hostname` display hostname
+- `curl  <url>` display contents of file at a URL
+- `wget <url>` download file from a URL
+- `ping` test a network connection using the 
 
 ### Questions and answers💯
+1.Which shell is usually the default on Linux systems? _Bourne again shell (bash)_
+2.Which of the following statements would print the paths stored in your system’s PATH variable? _echo $PATH_
+3. Which one of the following is a Linux command for viewing file contents? _cat_
+4. Which command can you use to create a view of a text file which excludes consecutively repeated lines? _uniq_
+5.Fill in the blank. The cd command enables you to change directories with either an absolute path to the directory, which always starts from the base or “slash” directory, or as relative path, which starts from your ___________________. _present working directory_
+6. Which of the following common shell commands for managing directories is used to delete an empty directory? _rmdir_
+7. Which of the following common shell commands for managing files or directories can be used to create an empty file or updates a file's timestamp? _touch_
+8.Which statement regarding file archiving and compression is true?_Archiving and compression are distinct processes that are usually combined._ 
+9. Which common networking command displays information regarding your system’s communication devices? _ifconfig_
+10. Which one of the following statement is false? _The hostname command is used to get or set the host name and other information, such as the packet transmission rate, which uniquely identifies your computer._
 
-
-
-
-
-
-
-
-
-### Docker basics
-**Docker:** a platform for developing, shipping, and running applications that  enables to separate applications from  infrastructure
