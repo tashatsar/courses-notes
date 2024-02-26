@@ -1,3 +1,2 @@
-# courses-markdowns 📚🤓🚀
-
-Summaries and otes on various courses and technical topics.
+# courses-notes 
+📚🤓🚀 Summaries and otes on various courses and technical topics.
