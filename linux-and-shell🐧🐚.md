@@ -15,7 +15,6 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 
 ## Introduction to Linux 🐧
 ### Introduction to Linux👋
-
 |Linux|Information|
 |---|---|
 |**usage**|mobile devices, desktops, supercomputers, data centers, and cloud servers|
@@ -33,7 +32,6 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 |**.deb file**s|used for Debian-based distributions such as Debian, Ubuntu, and Mint. Deb stands for Debian.|
 |**.rpm files**|used for Red Hat-based distributions such as CentOS/RHEL, Fedora, and openSUSE. RPM stands for Red Hat Package Manager.|
 |**convert packages**|Deb and RPM formats are equivalent, the contents of the file can be used on other types of Linux OSs. TO convert use the `alien` command and specify the package name that you want to convert|
-
 ### Questions and answers💯
 1. Which one of the following statements about Linux distributions is true? *Debian is stable, reliable, and fully open source.*
 2. Which layer of the Linux system contains system daemons and shells? *Application*
@@ -45,8 +43,6 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 8. Complete the following. Packages are: _Archive files_
 9. Which command can you use to convert package files between deb and RPM formats? _alien_
 10. Complete the following. An advantage of using a GUI-based package manager such as PackageKit is that: _It automatically checks for updates at configurable intervals._
-
-
 ## Linux Commands
 ### Informational Commandsℹ️
 #### Getting information
@@ -70,7 +66,6 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 	- `Shift+p` CPU Usage
 	- `Shift+n` Process ID (PID)
 	- `Shift+t` Running Time
-
 ### Navigating Files and Directories🗺️
 #### Getting information
 - `pwd` to get the location of your present working directory
@@ -91,8 +86,6 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 - `rm this_old_file.txt -v` removes a file verbosely
 - `mv this_file.txt that_path/that_file.txt` changes file name of path
 - `cp file.txt new_path/new_name.txt` copies a file
-
-  
 ### Viewing file contents🔍
 - `cat my_shell_script.sh` displays the tail end of the file
 - `more filename.ext` displays the top portion of the file first, `q` for quitting
@@ -107,7 +100,6 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 	- `-w` Match only if the pattern matches whole words
  - `grep  -iw hello  a_bunch_of_hellos.txt` extract lines containing the word "hello", case insensitive and whole words only
  - `grep  -l hello  *.txt` extract lines containing the pattern "hello" from all files in the current directory ending in .txt
-
 #### Displaying basic stats:
 - `wc usdoi.txt` to find the number of lines, words, and characters in a file
 	- `wc  -l table_of_data.csv` lines
@@ -117,7 +109,6 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 - `sort text_file.txt` sort and display lines of file alphanumerically
 	- `sort -r text_file.txt` reversed
 - `uniq list_with_duplicated_lines.txt` drop **consecutive** duplicated lines and display result
-
 ### Archiving and Compressing Files
 - `tar -cvf my_archive.tar.gz file1 file2 file3` achieve a set of files
 	- -c Create new archive file
@@ -125,14 +116,12 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 	- -f Archive file name
 - `zip my_zipped_files.zip file1 file2` compress a set of files
 - `unzip my_zipped_file.zip` that's what you think it is
- 
 ### Networking Commands
 - `ifconfig` display or configure system network interfaces
 - `hostname` display hostname
 - `curl  <url>` display contents of file at a URL
 - `wget <url>` download file from a URL
 - `ping` test a network connection using the 
-
 ### Questions and answers💯
 1.Which shell is usually the default on Linux systems? _Bourne again shell (bash)_
 2.Which of the following statements would print the paths stored in your system’s PATH variable? _echo $PATH_
