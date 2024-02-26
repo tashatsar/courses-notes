@@ -4,7 +4,7 @@
 Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripting](https://www.coursera.org/learn/hands-on-introduction-to-linux-commands-and-shell-scripting) by Coursera. 
 
 ## Table of Contents
-1. [Introduction to Linux](#introduction-to-linux):
+1. [Introduction to Linux]<a name="introduction-to-linux"></a>
 	1. [Introduction to Linux👋](#introduction-to-linux👋)
 	1. [Questions and answers💯](#questions-and-answers💯)
 2. [Linux Commands](#linux-commands):
