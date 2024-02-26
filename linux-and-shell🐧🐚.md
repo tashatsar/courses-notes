@@ -11,7 +11,7 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 	1. [bullet1](#commands)
 
 ## Introduction to Linux 🐧
-### Introduction to Linux
+### Introduction to Linux👋
 
 |Linux|Information|
 |---|---|
@@ -31,8 +31,7 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 |**.rpm files**|used for Red Hat-based distributions such as CentOS/RHEL, Fedora, and openSUSE. RPM stands for Red Hat Package Manager.|
 |**convert packages**|Deb and RPM formats are equivalent, the contents of the file can be used on other types of Linux OSs. TO convert use the `alien` command and specify the package name that you want to convert|
 
-
-### Questions and answers
+### Questions and answers💯
 1. Which one of the following statements about Linux distributions is true? *Debian is stable, reliable, and fully open source.*
 2. Which layer of the Linux system contains system daemons and shells? *Application*
 3. Which layer of the Linux system assigns software to users, helps detect errors, and performs file management tasks? *Operating system*
@@ -42,7 +41,72 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 7. Which of the following path helps you navigate to the user’s home directory? *~*
 8. Complete the following. Packages are: _Archive files_
 9. Which command can you use to convert package files between deb and RPM formats? _alien_
-10. Complete the following. An advantage of using a GUI-based package manager such as PackageKit is that: _It automatically checks for updates at configurable intervals. _
+10. Complete the following. An advantage of using a GUI-based package manager such as PackageKit is that: _It automatically checks for updates at configurable intervals._
+
+
+## Linux Commands
+### Informational Commandsℹ️
+#### Getting information
+- `whoami` to return your username
+- `uname` to print the kernel name
+	- `uname -a` option prints all the system information
+- `id` to display the user and group id
+- `echo` to print given text
+	- `echo -e` for working with special characters
+- `date` to display the current time and date
+	- `date '+%D' displays the current date in mm/dd/yy format
+- `man` to get the user manual for a command
+#### Monitoring system performance and status
+- `df` to print available disk space
+	- `df -h` to get available disk space in a "human-readable" format
+- `ps` to list running processes and their process id
+	- `ps -e` to display all of the processes running on the system
+- `top` to view a real-time table of processes
+	- `top -n 10` exit automatically after a specified number of repetitions
+	- `Shift+m` Memory Usage 
+	- `Shift+p` CPU Usage
+	- `Shift+n` Process ID (PID)
+	- `Shift+t` Running Time
+
+### Navigating Files and Directories🗺️
+#### Getting information
+- `pwd` to get the location of your present working directory
+- `ls` to list the files and directories within a directory
+	- `-a`	list all files, including hidden files
+	- `-d` list directories only, do not include files
+	- `-h`	with -l and -s, print sizes like 1K, 234M, 2G
+	- `-l`	include attributes like permissions, owner, size, and last-modified date
+	- `-S`	sort by file size, largest first
+	- `-t`	sort by last-modified date, newest first
+	- `-r`	reverse the sort order
+- `mkdir` to create a new directory
+- `cd` to change your present working directory
+#### Creating, copying, moving, and deleting files:
+- `touch a_new_file.txt` creates an empty file or update existing file's timestamp
+- `find` to search for and locate files
+	- `find /etc -name \'*.txt\'` finds all .txt files in the /etc directory and all of its subdirectories
+- `rm this_old_file.txt -v` removes a file verbosely
+- `mv this_file.txt that_path/that_file.txt` changes file name of path
+- `cp file.txt new_path/new_name.txt` copies a file
+
+  
+### Viewing file contents🔍
+- `cat my_shell_script.sh` displays the tail end of the file
+- `more filename.ext` displays the top portion of the file first, `q` for quitting
+- `head -10 data_table.csv` displays first 10 lines of file
+- `tail -10 data_table.csv` displays last 10 lines of file
+- `wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DB0250EN-SkillsNetwork/labs/Bash%20Scripting/usdoi.txt`
+#### Displaying basic stats:
+- `wc usdoi.txt` to find the number of lines, words, and characters in a file
+	- `wc  -l table_of_data.csv` lines
+	- `wc  -w my_essay.txt` words
+	- `wc  -m some_document.txt` characters
+
+### Questions and answers💯
+
+
+
+
 
 
 
