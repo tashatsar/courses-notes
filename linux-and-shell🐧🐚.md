@@ -5,13 +5,13 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 
 ## Table of Contents
 1. [Linux](#linux):
-	- [Introduction to Linux👋](#introduction-to-linux👋)
-	- [Questions and answers💯](#questions-and-answers💯)
+	- [Introduction to Linux](#introduction-to-linux👋)
+	- [Questions and answers 1](#questions-and-answers-1💯)
 2. [Linux Commands](#linux-commands):
 	- [Informational Commands](#informational-commandsℹ️)
 	- [Navigating Files and Directories](#navigating-files-and-directories🗺️)
 	- [Viewing file contents](#viewing-file-contents🔍)
-	- [Questions and answers](#questions-and-answers💯)
+	- [Questions and answers 2](#questions-and-answers-2💯)
 
 ## Linux 🐧
 ### Introduction to Linux👋
@@ -32,7 +32,7 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 |**.deb file**s|used for Debian-based distributions such as Debian, Ubuntu, and Mint. Deb stands for Debian.|
 |**.rpm files**|used for Red Hat-based distributions such as CentOS/RHEL, Fedora, and openSUSE. RPM stands for Red Hat Package Manager.|
 |**convert packages**|Deb and RPM formats are equivalent, the contents of the file can be used on other types of Linux OSs. TO convert use the `alien` command and specify the package name that you want to convert|
-### Questions and answers💯
+### Questions and answers 1💯
 1. Which one of the following statements about Linux distributions is true? *Debian is stable, reliable, and fully open source.*
 2. Which layer of the Linux system contains system daemons and shells? *Application*
 3. Which layer of the Linux system assigns software to users, helps detect errors, and performs file management tasks? *Operating system*
@@ -124,7 +124,7 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 - `curl  <url>` display contents of file at a URL
 - `wget <url>` download file from a URL
 - `ping` test a network connection using the 
-### Questions and answers💯
+### Questions and answers 2💯
 1.Which shell is usually the default on Linux systems? _Bourne again shell (bash)_
 2.Which of the following statements would print the paths stored in your system’s PATH variable? _echo $PATH_
 3. Which one of the following is a Linux command for viewing file contents? _cat_
