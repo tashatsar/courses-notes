@@ -1,4 +1,4 @@
 # courses-notes 📚🤓🚀 
-Summaries and otes on various courses and technical topics.
+Summaries and notes on various courses and technical topics.
 
 TBD: navigation
