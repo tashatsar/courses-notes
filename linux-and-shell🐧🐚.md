@@ -136,3 +136,36 @@ Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripti
 9. Which common networking command displays information regarding your system’s communication devices? _ifconfig_
 10. Which one of the following statement is false? _The hostname command is used to get or set the host name and other information, such as the packet transmission rate, which uniquely identifies your computer._
 
+## Shell Scripting🐚
+### Introduction to Shell👋
+A script is a list of commands that can be interpreted and run by a scripting language. Scripting languages are usually not compiled and are interpreted at runtime. Scripts are widely used to automate processes and perform system administration tasks.
+Shell scripts are executable text files that begin with a 'shebang' (#!) interpreter directive. Shell scripts can be used to execute commands and run other programs.
+
+Compiled languages may be faster than scripting languages but require more development time.
+
+#### Basic Commands
+- `ls -l filename.sh` check permissions
+- `chmod u+x filename.sh ` give permission to the current user
+- `chmod +x filename.sh ` give permission to all users
+
+#### Shell file example
+```
+echo -n "firstname:"
+read firstname
+echo -n "lastname:"
+read lastname
+echo "Hello $firstname $lastname "
+```
+
+#### Bash Shell Features
+**Metacharacters** are characters having special meaning that the shell interprets as instructions:
+- `#` Precedes a comment
+- `;` Command separator
+- `*` Filename expansion wildcard (`ls *.txt`)
+- `?` Single character wildcard in filename expansion (`ls file?.txt`)
+
+**Double quotes** `" "`: most characters are interpreted literally, but metacharacters are interpreted according to their special meaning
+
+**Single quotes** `' '`: all characters and metacharacters enclosed within the quotes are interpreted literally. 
+
+For example: `$ echo "Hello $USER"` vs `$ echo 'Hello $USER'` (gives `Hello <username>` and `Hello $USER` accordingly)
