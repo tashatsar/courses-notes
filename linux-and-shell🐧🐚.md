@@ -169,3 +169,25 @@ echo "Hello $firstname $lastname "
 **Single quotes** `' '`: all characters and metacharacters enclosed within the quotes are interpreted literally. 
 
 For example: `$ echo "Hello $USER"` vs `$ echo 'Hello $USER'` (gives `Hello <username>` and `Hello $USER` accordingly)
+
+
+**Input/Output redirection**
+|Symbol	|Meaning|
+|---|---|
+|**>**	|Redirect output to file, overwrite|
+|**>>**	|Redirect output to file, append|
+|**2>**	|Redirect standard error to file, overwrite|
+|**2>>**	|Redirect standard error to file, append|
+|**<**	|Redirect file contents to standard input|
+
+Input/output (IO) redirection is the process of directing the flow of data between a program and its input/output sources.
+
+By default, a program reads input from standard input, the keyboard, and writes output to standard output, the terminal. However, using IO redirection, you can redirect a program's input or output to or from a file or another program.
+
+**Command Line Arguments**
+Command line arguments are additional inputs that can be passed to a program when the program is run from a command line interface. These arguments are specified after the name of the program, and they can be used to modify the behavior of the program, provide input data, or provide output locations. Command line arguments are used to pass arguments to a shell script.
+
+For example, the following command provides two arguments, arg1, and arg2, that can be accessed from within your Bash script:
+```
+$ ./MyBashScript.sh arg1 arg2
+```
