@@ -1,10 +1,12 @@
 # [Introduction to DevOps](https://www.coursera.org/learn/intro-to-devops)
 
-👍Pro: amazing lecturers, great course content
-👎Cons: haven't found any
+👍Pro: amazing lecturer, great course content
+
+👎Cons: couldn't find any
+
 ⌚Duration: 9 hours
 
-The key takeaways from the course: 
+## The key takeaways from the course: 
 
 🚀Overview of DevOps:
 - DevOps is not it is not just Dev and Ops working together: the importance of cultural change
