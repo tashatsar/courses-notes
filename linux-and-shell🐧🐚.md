@@ -1,7 +1,13 @@
 # linux-commands-and-shell🐧🐚
 # Feb 2024
+# [Hands-on Introduction to Linux Commands and Shell Scripting](https://www.coursera.org/learn/hands-on-introduction-to-linux-commands-and-shell-scripting) by Coursera
+👍Pro: Hands-on Labs and examples of code are great, explanations are clear, cheet-sheets are extremely useful.
 
-Short notes on course [Hands-on Introduction to Linux Commands and Shell Scripting](https://www.coursera.org/learn/hands-on-introduction-to-linux-commands-and-shell-scripting) by Coursera. 
+👎Cons: Practice and final project were quite disappointing for me. Tasks description was confusing and even incorrect by moments, and the solution provided was not optimal. The final project will not work if done as described in the assignment.
+
+⌚Duration: 14 hours
+
+💯Overall: 6/10
 
 ## Table of Contents
 1. [Linux](#linux):
