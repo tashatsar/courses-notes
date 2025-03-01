@@ -27,4 +27,17 @@ Test cases **drive code design** in both behavior driven development (BDD) and t
 
 BDD: focuses on the system from the outside in, used for for integration and acceptance testing 
 
-TDD: focuses on the system from the inside out. used for for unit testing
+TDD: focuses on the system from the inside out, used for for unit testing
+
+## Test driven development🚨✅🔨
+
+In TDD, test cases drive code design. The Red🚨/Green✅/Refactor🔨 workflow.
+TDD saves development time and ensures that the code works as expected. 
+
+To create a DevOps pipeline, you must automate all testing. 
+
+### Frameworks:
+- The **xUnit series** is one of the most popular testing frameworks for TDD, while others include Jasmine for JavaScript, Mocha for Node.js, and SimpleTest for PHP
+- The two most popular testing frameworks for Python are **PyUnit and Pytest**. Two other popular testing frameworks for Python are Doctest and RSpec
+- **Nose** is a Python test runner that can add color to test output and call the code coverage tool
+
