@@ -41,3 +41,16 @@ To create a DevOps pipeline, you must automate all testing.
 - The two most popular testing frameworks for Python are **PyUnit and Pytest**. Two other popular testing frameworks for Python are Doctest and RSpec
 - **Nose** is a Python test runner that can add color to test output and call the code coverage tool
 
+### Assertions and fixtures
+**Assertions** are checks to determine if tests have passed or failed. To create assertions in Python, developers can use the assert () function or any additional PyUnit asserts.
+
+Happy paths verify that a function returns positive outcomes when expected, while sad paths confirm that a function responds to exceptions appropriately and without breaking.
+
+Test **fixtures** establish a known initial state before and after each test. Why test fixtures:
+- loading a database with a known data set
+- creating mock objects
+- etc
+  
+Test fixtures operate at three levels of specificity: Module, Test case, Test
+
+
