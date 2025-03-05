@@ -73,4 +73,14 @@ TDD keeps you focused on the application’s requirements before writing a singl
 The TDD workflow is a back-and-forth process.**
 
 
+## Behavior Driven Development 🥒 
+In BDD, you test the system’s behavior from the outside in.
+BDD ensures that the system behaves as intended. In the software testing process, the appropriate levels of performing BDD are integration, system, and acceptance testing.
 
+
+In the BDD workflow:
+1. create examples to describe the desired behavior
+2. run those examples as automated tests
+3. write additional tests as needed
+
+The workflow leads to one document that acts as both the specification and the tests for your software. To create an example in Gherkin syntax, you break it down into steps using **Given, When, Then, And, and But keywords.**
