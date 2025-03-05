@@ -1,4 +1,4 @@
-# Test and Behavior Driven Development 
+# Test and Behavior Driven Development🍏🍎
 
 ## Course [Test and Behavior Driven Development](https://www.coursera.org/learn/test-and-behavior-driven-development-tdd-bdd)💻📕🚀 
 
@@ -52,5 +52,25 @@ Test **fixtures** establish a known initial state before and after each test. Wh
 - etc
   
 Test fixtures operate at three levels of specificity: Module, Test case, Test
+
+### Advanced Methods for Test Driven Development
+
+**Test coverage:**
+- the higher the test coverage, the more confidence that code works as expected
+- missing test coverage reports help to identify lines of code that need test cases
+
+**Factories and fakes** are useful for creating and maintaining a large amount of test data.
+- **Factories** generate fakes with realistic test data.
+- **Fakes** behave like real objects during testing
+
+**Mocking**: creating objects that mimic the behavior of real objects in ways that you can control. Why? To isolate tests from a remote component or external system. **Patching** is a mocking technique by which developers change the behavior of a function call. Python’s mock library provides two patching techniques:
+- Patching a function’s return value
+- Replacing a function with another function (the side effect technique)
+
+
+**Conclusion:
+TDD keeps you focused on the application’s requirements before writing a single code line.
+The TDD workflow is a back-and-forth process.**
+
 
 
