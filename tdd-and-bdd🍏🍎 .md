@@ -75,12 +75,37 @@ The TDD workflow is a back-and-forth process.**
 
 ## Behavior Driven Development 🥒 
 In BDD, you test the system’s behavior from the outside in.
-BDD ensures that the system behaves as intended. In the software testing process, the appropriate levels of performing BDD are integration, system, and acceptance testing.
+BDD ensures that the system behaves as intended. In the software testing process, the appropriate levels of performing BDD are 
+- integration
+- system
+- acceptance testing
 
-
-In the BDD workflow:
+In the **BDD workflow:**
 1. create examples to describe the desired behavior
 2. run those examples as automated tests
 3. write additional tests as needed
 
+The BDD workflow leads to one document that acts as both the specification and the tests for your software.
+
 The workflow leads to one document that acts as both the specification and the tests for your software. To create an example in Gherkin syntax, you break it down into steps using **Given, When, Then, And, and But keywords.**
+
+**BDD tools**: Cucumber and Behave (both use the Gherkin syntax), Concordion
+
+### Running Behave
+
+**Features**: Represent user stories and are described using the syntax: “As a [role], I want [functionality], So that [benefit].” Each feature can be placed in its own specification file.
+
+**Scenarios**: Describe specific behaviors of a feature using the Given, When, Then syntax. Each scenario serves as a complete test case.
+
+📁 Features folder for feature files and a Steps folder for Python steps files.
+
+**Behave actions when run:**
+1. reads the Gherkin statements in each feature file
+2. looks for matching Python steps in the steps files
+3. executes the test functions embedded within the Python steps
+
+**Behave environment:**
+1. import getenv() and other required modules.
+2. declare global variables from the environment.
+3. define your test fixtures.
+
