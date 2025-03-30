@@ -67,3 +67,18 @@ Steps used to create and run containers:
 `ibmcloud cr region-set` |	Ensures that you are targeting the region appropriate to your cloud account
 `ibmcloud target` |	Provides information about the account you’re targeting
 `ibmcloud version` |	Displays the version of the IBM Cloud CLI
+
+
+Glossary: Container Basics
+Term	Definition
+- container: a standard unit of software that encapsulates the application code, runtime, system tools, system libraries, and settings necessary for programmers to efficiently build, ship and run applications
+- Container Registry:	Used for the storage and distribution of named container images. While many features can be built on top of a registry, its most basic functions are to store images and retrieve them.
+- Daemon-less: container runtime that does not run any specific program (daemon) to create objects, such as images, containers, networks, and volumes.
+- Dockerfile: a text document that contains all the commands you would normally execute manually in order to build a Docker image. Docker can build images automatically by reading the instructions from a Dockerfile.
+- Docker client: the primary way that many Docker users interact with Docker. When you use commands such as docker run, the client sends these commands to dockerd, which carries them out. The docker command uses the Docker API. The Docker client can communicate with more than one daemon.
+- Docker daemon (dockerd):	creates and manages Docker objects, such as images, containers, networks, and volumes.
+- Docker plugins	such as a storage plugin, provides the ability to connect external storage platforms.
+- Docker storage	uses volumes and bind mounts to persist data even after a running container is stopped.
+- Registry: a hosted service containing repositories of images which responds to the Registry API
+- Repository:	a set of Docker images. A repository can be shared by pushing it to a registry server. The different images in the repository can be labelled using tags.
+- Tag:	a label applied to a Docker image in a repository. Tags are how various images in a repository are distinguished from each other.
