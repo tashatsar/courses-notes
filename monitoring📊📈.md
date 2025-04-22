@@ -16,7 +16,7 @@
 
 **Types of monitoring:**
 - System monitoring (availability monitoring) measures the uptime and availability of your application, infrastructure, and network.
-- Real User Monitoring provides information about real user interactions and the historical performance of an application or service. 
+- Real User Monitoring (RUM) provides information about real user interactions and the historical performance of an application or service. 
 - Security monitoring tracks anomalies and ensures that potential threats are stopped before they are a problem.
 - Dependency Monitoring
 - Integration Monitoring monitors third-party integrations to ensure they function correctly.
@@ -68,12 +68,36 @@ An ideal monitoring system operates independently, is reliable, offers user-frie
 
 **Synthetic Monitoring**
 
-Involves simulating user interactions with predefined actions to assess website performance. Helps identify technical issues and slow performance.
-
-Process of Synthetic Monitoring: The monitoring system selects checkpoints to perform tests, checks responses, and reports findings back to the monitoring system.
-If errors are detected, alerts are sent out, allowing for quick problem resolution.
+Involves **simulating user interactions** with predefined actions to assess website performance. Helps identify technical issues and slow performance. **Process of Synthetic Monitoring**: The monitoring system selects checkpoints to perform tests, checks responses, and reports findings back to the monitoring system. If errors are detected, alerts are sent out, allowing for quick problem resolution.
 
 Synthetic Monitoring provides quick problem resolution and alerts teams to issues before users are affected.
 Synthetic monitoring is essential for maintaining productivity, revenue, and reputation, especially for companies relying on online services.
 
+### Application Monitoring
+
+Performance Monitoring
+Availability Monitoring
+User Experience Monitoring
+Error Monitoring
+Log Monitoring
+
+
+
+Prometheus vs Grafana vs Kibana vs Splunk, I don't understand the difference
+
+Coach
+Let's break down the differences between Prometheus, Grafana, Kibana, and Splunk:
+
+| tool | for what |  functions | example |
+| --- | --- | --- | --- |
+|Prometheus|Monitoring and alerting toolkit|collecting and storing metrics as time series data, designed for reliability and scalability|monitoring applications and infrastructure, especially in cloud-native environments|
+|Grafana|Data visualization and analytics platform|Works with various data sources (including Prometheus) to create dashboards and visualizations, does not collect data itself|visualizing metrics and logs from different sources in a unified dashboard|
+|Kibana|Data visualization tool for Elasticsearch|visualizes log data stored in Elasticsearch, provides powerful search and filtering capabilities|analyzing and visualizing log data, especially in conjunction with the ELK stack (Elasticsearch, Logstash, Kibana)|
+|Splunk|Data analysis and monitoring platform|collects, indexes, and analyzes machine-generated data, provides powerful search, monitoring, and reporting capabilities|large-scale data analysis, security monitoring, and operational intelligence|
+
+Summary:
+- Prometheus: Focuses on metrics collection and monitoring.
+- Grafana: Visualizes data from various sources, including Prometheus.
+- Kibana: Visualizes log data from Elasticsearch.
+- Splunk: Comprehensive data analysis and monitoring platform for various data types.
 
