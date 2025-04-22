@@ -101,3 +101,11 @@ Summary:
 - Kibana: Visualizes log data from Elasticsearch.
 - Splunk: Comprehensive data analysis and monitoring platform for various data types.
 
+
+## Logging
+
+**Distributed Logging** involves collecting and storing log data from multiple sources across different nodes or servers, enabling centralized monitoring and analysis.
+
+**Distributed Tracing** profiles and monitors applications, particularly those with microservices, by tracking requests as they move through various services. Important concepts in distributed tracing include trace, span, trace ID, parent/child relation, context propagation, and instrumentation.
+
+
