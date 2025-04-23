@@ -134,3 +134,8 @@ Observability: providing real-time insights and context-rich information, allowi
 
 **🏛️Traces** record the workflows of requests through a distributed system, helping to identify bottlenecks and latency issues. Identify the problematic component or step.
 
+### Cloud native observability and sampling
+
+Cloud native observability is the practice of monitoring and understanding the behavior of cloud-native applications running in dynamic and distributed environments. The pillars of cloud enterprise observability are automation, context, and intelligent action.
+
+**Sampling in logging** is the practice of collecting only a subset of log events for analysis or storage. Instead of logging every single event or piece of data, a subset is selected randomly or by some other criteria for recording.
