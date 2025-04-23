@@ -8,7 +8,7 @@
 
 💯Overall: _/10
 
-## Intorduction
+## Intorduction🙋‍♂️📝
 
 ### Monitoring Basics
 
@@ -64,29 +64,22 @@ An ideal monitoring system operates independently, is reliable, offers user-frie
 - Deployment Environment: Different metrics may be prioritized in production versus staging/testing environments.
 - Potential Usefulness: Metrics should be evaluated for their future utility and necessity.
 
-## Monitoring Systems and Techniques
+## Monitoring Systems and Techniques💻⚙️
 
 **Synthetic Monitoring**
 
 Involves **simulating user interactions** with predefined actions to assess website performance. Helps identify technical issues and slow performance. **Process of Synthetic Monitoring**: The monitoring system selects checkpoints to perform tests, checks responses, and reports findings back to the monitoring system. If errors are detected, alerts are sent out, allowing for quick problem resolution.
 
-Synthetic Monitoring provides quick problem resolution and alerts teams to issues before users are affected.
-Synthetic monitoring is essential for maintaining productivity, revenue, and reputation, especially for companies relying on online services.
-
 ### Application Monitoring
 
-Performance Monitoring
-Availability Monitoring
-User Experience Monitoring
-Error Monitoring
-Log Monitoring
+Types:
+- Performance Monitoring
+- Availability Monitoring
+- User Experience Monitoring
+- Error Monitoring
+- Log Monitoring
 
-
-
-Prometheus vs Grafana vs Kibana vs Splunk, I don't understand the difference
-
-Coach
-Let's break down the differences between Prometheus, Grafana, Kibana, and Splunk:
+**Monitoring tools**
 
 | tool | for what |  functions | example |
 | --- | --- | --- | --- |
@@ -95,17 +88,25 @@ Let's break down the differences between Prometheus, Grafana, Kibana, and Splunk
 |Kibana|Data visualization tool for Elasticsearch|visualizes log data stored in Elasticsearch, provides powerful search and filtering capabilities|analyzing and visualizing log data, especially in conjunction with the ELK stack (Elasticsearch, Logstash, Kibana)|
 |Splunk|Data analysis and monitoring platform|collects, indexes, and analyzes machine-generated data, provides powerful search, monitoring, and reporting capabilities|large-scale data analysis, security monitoring, and operational intelligence|
 
-Summary:
+**Summary:**
 - Prometheus: Focuses on metrics collection and monitoring.
 - Grafana: Visualizes data from various sources, including Prometheus.
 - Kibana: Visualizes log data from Elasticsearch.
 - Splunk: Comprehensive data analysis and monitoring platform for various data types.
 
 
-## Logging
+## Logging📁📝
 
 **Distributed Logging** involves collecting and storing log data from multiple sources across different nodes or servers, enabling centralized monitoring and analysis.
 
 **Distributed Tracing** profiles and monitors applications, particularly those with microservices, by tracking requests as they move through various services. Important concepts in distributed tracing include trace, span, trace ID, parent/child relation, context propagation, and instrumentation.
 
+Application logs:
+- event
+- error
+- access
+- performance
+- debugging
+
+Analytical dimensions that give an idea of how long the retention period should be: criticality, security, maturity, frequency, cost-effectiveness, and discovery and resolution.
 
