@@ -195,3 +195,14 @@ print(metrics)
 | 📉 `RegressionEvaluator`               | Regression                   | `"rmse"`, `"mse"`, `"mae"`, `"r2"`                              | Evaluates regression models.                                            |
 | 📊 `ClusteringEvaluator`               | Clustering                   | `"silhouette"`                                                  | Measures clustering quality using silhouette score (based on distance). |
 
+## Unsupervised learning
+
+| 🔢 Model                           | 🧱 PySpark Class                    | 🧠 Task Type             | 📝 Notes                                                      |
+| ---------------------------------- | ----------------------------------- | ------------------------ | ------------------------------------------------------------- |
+| 📊 **K-Means**                     | `KMeans`                            | Clustering               | Fast, popular centroid-based clustering.                      |
+| 🧭 **Gaussian Mixture**            | `GaussianMixture`                   | Clustering               | Soft clustering (probabilistic assignment).                   |
+| 🔳 **Bisecting K-Means**           | `BisectingKMeans`                   | Clustering               | Hierarchical divisive clustering.                             |
+| 🧮 **LDA**                         | `LDA` (Latent Dirichlet Allocation) | Topic Modeling           | Used for discovering abstract topics in text.                 |
+| 🧊 **PCA**                         | `PCA`                               | Dimensionality Reduction | Projects features onto principal components.                  |
+| 🧬 **Truncated SVD**               | `TruncatedSVD` *(SynapseML)*        | Dimensionality Reduction | Similar to PCA but works on sparse data (requires SynapseML). |
+| 🧱 **Normalizer / StandardScaler** | `Normalizer`, `StandardScaler`      | Preprocessing            | Not models but often used before unsupervised learning.       |
