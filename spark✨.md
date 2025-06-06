@@ -206,3 +206,37 @@ print(metrics)
 | 🧊 **PCA**                         | `PCA`                               | Dimensionality Reduction | Projects features onto principal components.                  |
 | 🧬 **Truncated SVD**               | `TruncatedSVD` *(SynapseML)*        | Dimensionality Reduction | Similar to PCA but works on sparse data (requires SynapseML). |
 | 🧱 **Normalizer / StandardScaler** | `Normalizer`, `StandardScaler`      | Preprocessing            | Not models but often used before unsupervised learning.       |
+
+## Dataframes
+
+```py
+# print the number of rows in the dataframe
+df.count()
+
+# Drop Duplicates
+df = df.dropDuplicates()
+
+# Drop Null values
+df=df.dropna()
+
+# Write the data to a Parquet fileSSSSS
+df.write.mode("overwrite").parquet("student-hw.parquet")
+
+# Reduce the number of partitions in the dataframe to one - and then save to a parquet
+df = df.repartition(1)
+
+# Read parquet
+df = spark.read.parquet("student-hw-single.parquet")
+```
+Notes: To improve parallellism, spark stores each dataframe in multiple partitions.
+When the data is saved as parquet file, each partition is saved as a separate file!!!
+
+For data transformations: 
+```
+#import the expr function that helps in transforming the data
+from pyspark.sql.functions import expr
+
+# Convert pounds to kilograms
+# Multiply weight_pounds with 0.453592 to get a new column weight_kg
+df = df.withColumn("weight_kg", expr("weight_pounds * 0.453592"))
+```
