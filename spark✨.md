@@ -1,5 +1,25 @@
 # Machine-learning-with-apache-spark✨
 
+- [Machine-learning-with-apache-spark✨](#machine-learning-with-apache-spark)
+  - [Getting started](#getting-started)
+  - [Dataframes](#dataframes)
+  - [Regression](#regression)
+    - [Linear regression](#linear-regression)
+    - [GBT](#gbt)
+    - [LightGBM](#lightgbm)
+    - [RegressionEvaluator](#regressionevaluator)
+  - [Classification](#classification)
+    - [Classification models](#classification-models)
+    - [MulticlassClassificationEvaluator](#multiclassclassificationevaluator)
+  - [Metrics](#metrics)
+  - [Unsupervised learning](#unsupervised-learning)
+  - [Modeling: Pipelines and Saving Models](#modeling-pipelines-and-saving-models)
+    - [Prepare](#prepare)
+    - [Create the model](#create-the-model)
+    - [Save the model](#save-the-model)
+    - [Load the model](#load-the-model)
+    - [Predict](#predict)
+
 ## Getting started 
 
 **Importing Libraries**
@@ -38,28 +58,81 @@ diamond_data.show(5)
 spark.stop()
 ```
 
+## Dataframes
+```py
+
+# Create a spark session
+spark = SparkSession.builder.appName("Model Persistence").getOrCreate()
+# Download the data set
+!wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-BD0231EN-SkillsNetwork/datasets/diamonds.csv
+# Load the dataset into a spark dataframe
+diamond_data = spark.read.csv("diamonds.csv", header=True, inferSchema=True)
+
+# Display sample data from dataset
+diamond_data.show(5)
+
+# Print the schema of the dataset
+diamond_data.printSchema()
+
+# Print the number of rows in the dataframe
+df.count()
+
+# Drop Duplicates
+df = df.dropDuplicates()
+
+# Drop Null values
+df=df.dropna()
+
+# Write the data to a Parquet fileSSSSS
+df.write.mode("overwrite").parquet("student-hw.parquet")
+
+# Reduce the number of partitions in the dataframe to one - and then save to a parquet
+df = df.repartition(1)
+
+# Read parquet
+df = spark.read.parquet("student-hw-single.parquet")
+```
+Notes: To improve parallellism, spark stores each dataframe in multiple partitions.
+When the data is saved as parquet file, each partition is saved as a separate file!!!
+
+For data transformations and descriptive staristics:
+
+```py
+#import the expr function that helps in transforming the data
+from pyspark.sql.functions import expr
+
+# Convert pounds to kilograms
+# Multiply weight_pounds with 0.453592 to get a new column weight_kg
+df = df.withColumn("weight_kg", expr("weight_pounds * 0.453592"))
+
+from pyspark.sql import functions as F
+diamond_data.groupBy("cut").avg("price").show()
+diamond_data.groupBy("color").agg(F.max("price").alias("max_price"), F.min("price").alias("min_price")).show()
+diamond_data.stat.corr("carat", "price") 
+diamond_data.describe(["carat", "depth", "table", "price"]).show()
+diamond_data.stat.crosstab("cut", "clarity").show()
+diamond_data.withColumn("carat_group", F.floor(diamond_data["carat"] / 0.2)) \
+    .groupBy("carat_group") \
+    .avg("price") \
+    .orderBy("carat_group") \
+    .show()
+```
+
+
 ## Regression
 
 
-| Built-in Model                            |`pyspark.ml.regression` | 
-| -------------------------------- | ------------------------------- | 
-| 💡 Linear Regression             | `LinearRegression`              | 
-| 🌲 Decision Tree Regressor       | `DecisionTreeRegressor`         | 
-| 🌳 Random Forest Regressor       | `RandomForestRegressor`         | 
-| 🎯 GBT Regressor (Boosting)      | `GBTRegressor`                  | 
-| 🤖 AFT Survival Regression       | `AFTSurvivalRegression`         | 
-| 🧮 Generalized Linear Regression | `GeneralizedLinearRegression`   |
+| Built-in Model                  | `pyspark.ml.regression`       |
+| ------------------------------- | ----------------------------- |
+| 💡 Linear Regression             | `LinearRegression`            |
+| 🌲 Decision Tree Regressor       | `DecisionTreeRegressor`       |
+| 🌳 Random Forest Regressor       | `RandomForestRegressor`       |
+| 🎯 GBT Regressor (Boosting)      | `GBTRegressor`                |
+| 🤖 AFT Survival Regression       | `AFTSurvivalRegression`       |
+| 🧮 Generalized Linear Regression | `GeneralizedLinearRegression` |
 
 Notes:
 - Spark ML требует, чтобы все входные признаки были в одном столбце типа Vector, а не в нескольких числовых колонках
-
-| 📏 Metric       | `.setMetricName()` value | Description                                                                     |
-| --------------- | ------------------------ | ------------------------------------------------------------------------------- |
-| 🧮 **RMSE**     | `"rmse"`                 | Root Mean Squared Error – penalizes large errors more heavily.                  |
-| ➕ **MSE**       | `"mse"`                  | Mean Squared Error – average squared difference between predicted and actual.   |
-| ➖ **MAE**       | `"mae"`                  | Mean Absolute Error – average absolute difference between predicted and actual. |
-| 📈 **R² Score** | `"r2"`                   | Coefficient of Determination – proportion of variance explained by the model.   |
-
 
 ### Linear regression
 
@@ -163,11 +236,23 @@ for metric in ['r2', 'mae', 'rmse']:
 print(metrics)
 ```
 
+### RegressionEvaluator
+
+| 📏 Metric       | `.setMetricName()` value | Description                                                                     |
+| -------------- | ------------------------ | ------------------------------------------------------------------------------- |
+| 🧮 **RMSE**     | `"rmse"`                 | Root Mean Squared Error – penalizes large errors more heavily.                  |
+| ➕ **MSE**      | `"mse"`                  | Mean Squared Error – average squared difference between predicted and actual.   |
+| ➖ **MAE**      | `"mae"`                  | Mean Absolute Error – average absolute difference between predicted and actual. |
+| 📈 **R² Score** | `"r2"`                   | Coefficient of Determination – proportion of variance explained by the model.   |
+
+
 ## Classification
 
-| Model                      | `pyspark.ml.classification`              | Task Type          | Notes                                            |
-| ----------------------------- | -------------------------------- | --------------------- | --------------------------------------------------- |
-| 📈 Logistic Regression   | `LogisticRegression`             | Binary / Multiclass   | Supports regularization, baseline model             |
+### Classification models
+
+| Model                    | `pyspark.ml.classification`      | Task Type             | Notes                                               |
+| ------------------------ | -------------------------------- | --------------------- | --------------------------------------------------- |
+| 📈 Logistic Regression    | `LogisticRegression`             | Binary / Multiclass   | Supports regularization, baseline model             |
 | ⚖️ Linear SVM             | `LinearSVC`                      | Binary only           | No probability outputs, fast and scalable           |
 | 📊 Naive Bayes            | `NaiveBayes`                     | Binary / Multiclass   | Good for categorical/text data                      |
 | 🌳 Decision Tree          | `DecisionTreeClassifier`         | Binary / Multiclass   | Interpretable, prone to overfitting                 |
@@ -179,8 +264,8 @@ print(metrics)
 
 ### MulticlassClassificationEvaluator
 
-| Metric        | `.setMetricName()` value | Description                                            |
-| ---------------- | ------------------------ | ------------------------------------------------------ |
+| Metric          | `.setMetricName()` value | Description                                            |
+| --------------- | ------------------------ | ------------------------------------------------------ |
 | 🧮 **Accuracy**  | `"accuracy"`             | Proportion of correct predictions (macro average).     |
 | 📐 **F1 Score**  | `"f1"`                   | Harmonic mean of precision and recall (macro average). |
 | 🎯 **Precision** | `"weightedPrecision"`    | Precision weighted by class frequencies.               |
@@ -188,17 +273,17 @@ print(metrics)
 
 ## Metrics 
 
-| 📦 Evaluator Class                     | 🧠 Task Type                 | 📏 Supported Metrics (`.setMetricName()`)                       | 🔎 Description                                                          |
-| -------------------------------------- | ---------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| 📦 Evaluator Class                     | 🧠 Task Type                  | 📏 Supported Metrics (`.setMetricName()`)                        | 🔎 Description                                                           |
+| ------------------------------------- | ---------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | 🧮 `MulticlassClassificationEvaluator` | Classification (multi-class) | `"accuracy"`, `"f1"`, `"weightedPrecision"`, `"weightedRecall"` | Evaluates multi-class classification models.                            |
-| ✅ `BinaryClassificationEvaluator`      | Classification (binary)      | `"areaUnderROC"`, `"areaUnderPR"`                               | Evaluates binary classifiers based on ROC or PR curves.                 |
+| ✅ `BinaryClassificationEvaluator`     | Classification (binary)      | `"areaUnderROC"`, `"areaUnderPR"`                               | Evaluates binary classifiers based on ROC or PR curves.                 |
 | 📉 `RegressionEvaluator`               | Regression                   | `"rmse"`, `"mse"`, `"mae"`, `"r2"`                              | Evaluates regression models.                                            |
 | 📊 `ClusteringEvaluator`               | Clustering                   | `"silhouette"`                                                  | Measures clustering quality using silhouette score (based on distance). |
 
 ## Unsupervised learning
 
-| 🔢 Model                           | 🧱 PySpark Class                    | 🧠 Task Type             | 📝 Notes                                                      |
-| ---------------------------------- | ----------------------------------- | ------------------------ | ------------------------------------------------------------- |
+| 🔢 Model                           | 🧱 PySpark Class                     | 🧠 Task Type              | 📝 Notes                                                       |
+| --------------------------------- | ----------------------------------- | ------------------------ | ------------------------------------------------------------- |
 | 📊 **K-Means**                     | `KMeans`                            | Clustering               | Fast, popular centroid-based clustering.                      |
 | 🧭 **Gaussian Mixture**            | `GaussianMixture`                   | Clustering               | Soft clustering (probabilistic assignment).                   |
 | 🔳 **Bisecting K-Means**           | `BisectingKMeans`                   | Clustering               | Hierarchical divisive clustering.                             |
@@ -207,36 +292,84 @@ print(metrics)
 | 🧬 **Truncated SVD**               | `TruncatedSVD` *(SynapseML)*        | Dimensionality Reduction | Similar to PCA but works on sparse data (requires SynapseML). |
 | 🧱 **Normalizer / StandardScaler** | `Normalizer`, `StandardScaler`      | Preprocessing            | Not models but often used before unsupervised learning.       |
 
-## Dataframes
+
+## Modeling: Pipelines and Saving Models
+
+### Prepare 
 
 ```py
-# print the number of rows in the dataframe
-df.count()
+!pip install pyspark==3.1.2 -q
+!pip install findspark -q
 
-# Drop Duplicates
-df = df.dropDuplicates()
+# FindSpark simplifies the process of using Apache Spark with Python
+import findspark
+findspark.init()
 
-# Drop Null values
-df=df.dropna()
+from pyspark.ml.regression import LinearRegression
+from pyspark.ml.feature import VectorAssembler
+from pyspark.sql import SparkSession
+from pyspark.ml import Pipeline
+# import functions/Classes for metrics
+from pyspark.ml.evaluation import RegressionEvaluator
 
-# Write the data to a Parquet fileSSSSS
-df.write.mode("overwrite").parquet("student-hw.parquet")
 
-# Reduce the number of partitions in the dataframe to one - and then save to a parquet
-df = df.repartition(1)
+# Create a spark session
+spark = SparkSession.builder.appName("Model Persistence").getOrCreate()
 
-# Read parquet
-df = spark.read.parquet("student-hw-single.parquet")
+# Download the data set
+!wget https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-BD0231EN-SkillsNetwork/datasets/diamonds.csv
+
+# Load the dataset into a spark dataframe
+diamond_data = spark.read.csv("diamonds.csv", header=True, inferSchema=True)
+
+# Display sample data from dataset
+diamond_data.show(5)
 ```
-Notes: To improve parallellism, spark stores each dataframe in multiple partitions.
-When the data is saved as parquet file, each partition is saved as a separate file!!!
+### Create the model 
+```py
+# Assemble the columns columns carat,depth and table into a single column named "features"
+assembler = VectorAssembler(inputCols=["carat", "depth", "table"], outputCol="features")
+diamond_transformed_data = assembler.transform(diamond_data)
 
-For data transformations: 
+# Print the vectorized features and label columns
+diamond_transformed_data.select("features","price").show()
+
+# Split the dataset into training and testing sets in the ratio of 70:30.
+(training_data, testing_data) = diamond_transformed_data.randomSplit([0.7, 0.3])
+
+# Train linear regression model
+lr = LinearRegression(labelCol="price", featuresCol="features")
+pipeline = Pipeline(stages=[lr])
+model = pipeline.fit(training_data)
 ```
-#import the expr function that helps in transforming the data
-from pyspark.sql.functions import expr
 
-# Convert pounds to kilograms
-# Multiply weight_pounds with 0.453592 to get a new column weight_kg
-df = df.withColumn("weight_kg", expr("weight_pounds * 0.453592"))
+### Save the model 
+```py
+# Create a folder "diamond_model". This is where the model will to be saved
+!mkdir diamond_model
+!mkdir diamond_model
+
+# Persist the model to the folder "diamond_model"
+model.write().overwrite().save("./diamond_model/")
+```
+### Load the model
+```py
+# Load the model from the folder "diamond_model"
+from pyspark.ml.pipeline import PipelineModel
+​
+# Load persisted model
+loaded_model = PipelineModel.load("./diamond_model/")                                                                       
+```
+
+### Predict 
+```py 
+predictions = loaded_model.transform(testing_data)
+predictions.select("prediction").show(5)
+
+metrics = {}
+for metric in ['r2', 'mae', 'rmse']:
+    evaluator = RegressionEvaluator(labelCol="price", predictionCol="prediction", metricName=metric)
+    metrics[metric] = evaluator.evaluate(predictions)
+print(metrics)
+
 ```
